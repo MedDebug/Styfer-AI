@@ -1,7 +1,7 @@
 import os
-condition = True
+
 os.chdir(r"C:\Users\Medhansh\Desktop")
-while condition == True:
+while True:
     print("-------------------------------------------")
     print("------------Styfer File Manager------------")
     print("-------------------------------------------")
@@ -17,8 +17,11 @@ while condition == True:
     print("6 - Rename a file/directory")
     print("7 - Exit")
 
-    answer = int(input("What would you like to do? (Type a number from the above): "))
-        
+    try:
+        answer = int(input())
+    except ValueError:
+        print("Please enter a valid number between 1 and 7 (inclusive) ")
+        continue
     if answer == 1:
         for folder in os.listdir():
             if os.path.isdir(folder):
@@ -36,34 +39,35 @@ while condition == True:
             print("Folder created")
     elif answer == 4:
         file_input = input("Please enter name of file you wish to delete: ")
-        if os.path.isfile(file_input):
+        try:
             os.remove(file_input)
-            print("File deleted")
-        else:
+            print("File deleted successfully")
+        except IsADirectoryError:
+            print("Folder entered, expected file")
+        except FileNotFoundError:
             print("This file does not exist")
     elif answer == 5:
         directory_input = input("Please enter the full directory you want to change: ")
         if os.path.isdir(directory_input):
             os.chdir(directory_input)
-            print("Directory changed")
+            print("Directory successfully changed")
         else:
-            print("This directory does not exist")
+            print("Please enter a valid existing directory")
     elif answer == 6:
-        print("Folder or file?")
-        rename_input = input().lower()
+        rename_input = input("Folder or file? : ").lower()
         if rename_input == "folder":
-            old_name = input("Please enter old name: ")
-            new_name = input("Please enter new name: ")
-            if os.path.isdir(old_name):
-                os.rename(old_name,new_name)
+            old_name_folder = input("Please enter old name: ")
+            new_name_folder = input("Please enter new name: ")
+            if os.path.isdir(old_name_folder):
+                os.rename(old_name_folder,new_name_folder)
                 print("Directory renamed successfully")
             else:
                 print("This folder does not exist")
         elif rename_input == "file":
-            old_name = input("Please enter old name: ")
-            new_name = input("Please enter new name: ")
-            if os.path.isfile(old_name):
-                os.rename(old_name,new_name)
+            old_name_file = input("Please enter old name: ")
+            new_name_file = input("Please enter new name: ")
+            if os.path.isfile(old_name_file):
+                os.rename(old_name_file,new_name_file)
                 print("File renamed successfully")
             else:
                 print("This file does not exist")
@@ -71,7 +75,9 @@ while condition == True:
             print("Please enter either folder or file")
     elif answer == 7:
         print("Thank you for using the Styfer File Manager!")
-        condition = False
+        break
+    else:
+        print("Please enter a number between 1 and 7 (inclusive) ")
     
     
 
