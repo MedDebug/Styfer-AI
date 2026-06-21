@@ -1,5 +1,27 @@
 import os
-
+def search_file():
+    search = input("Do you want to search for a file or a folder? : ").lower()
+    found = False
+    if search == "file":
+        file_name = input("Please enter the name of the file: ")
+        for root,dirs,files in os.walk("C:\\Users\\Medhansh\\Desktop"):
+            if file_name in files:
+                print("File found successfully")
+                print("File location: ", os.path.join(root,file_name))
+                found = True
+                break
+        if found == False:
+            print("File not found")
+    elif search == "folder":
+        folder_name = input("Please enter the name of the folder: ")
+        for root,dirs,files in os.walk("C:\\Users\\Medhansh\\Desktop"):
+            if folder_name in dirs:
+                print("Directory found successfully")
+                print("File location: ", os.path.join(root,folder_name))
+                found = True
+                break
+        if found == False:
+            print("Directory not found")
 def list_folders():
     for folder in os.listdir():
         if os.path.isdir(folder):
