@@ -30,3 +30,4 @@ while True:
     else:
         print("Please enter a number between 1 and 7 (inclusive) ")
 
+#MAIN LOOP
