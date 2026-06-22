@@ -13,6 +13,7 @@ def show_menu():
     print("4 - Delete a file")
     print("5 - Change directory")
     print("6 - Rename a file/directory")
-    print("7 - Exit")
+    print("7 - Search a file/Directory")
+    print("8 - Exit")
     
 

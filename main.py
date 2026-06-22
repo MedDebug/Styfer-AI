@@ -1,10 +1,9 @@
 from menu import show_menu
 import os
-from file_manager import list_folders, list_files, create_folder, delete_file, change_directory, rename_file_or_directory
+from file_manager import list_folders, list_files, create_folder, delete_file, change_directory, rename_file_or_directory, search_file
 os.chdir(r"C:\Users\Medhansh\Desktop")
+show_menu()
 while True:
-    show_menu()
-
     try:
         print()
         answer = int(input("Please enter a number: "))
@@ -24,6 +23,8 @@ while True:
     elif answer == 6:
         rename_file_or_directory()
     elif answer == 7:
+        search_file()
+    elif answer == 8:
         print("Thank you for using the Styfer File Manager!")
         break
     else:
