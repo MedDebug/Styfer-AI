@@ -1,118 +1,96 @@
-# 🤖 Styfer AI
+# Styfer AI 🤖
 
-> *Building my own AI assistant from scratch.*
+Styfer AI is my personal assistant project built entirely in Python.
 
-## What is Styfer?
+The goal of Styfer is to gradually evolve from a simple file manager into a full-featured AI assistant capable of managing files, remembering user information, automating tasks, and eventually interacting with AI models.
 
-Styfer is my personal AI assistant project that I'm building during college.
-
-The goal isn't just to have another chatbot. I want to create something that can genuinely help me in my daily life—manage files, automate tasks, assist with coding, remember projects, and eventually become a real desktop companion.
-
-More importantly, this project is my way of learning software engineering. Instead of watching endless tutorials, I'm learning by building.
+This project is being built step-by-step as a learning journey, with each version introducing new programming concepts and features.
 
 ---
 
-## Current Progress
+## Current Features
 
-### ✅ Styfer File Manager v0.1
+### 📁 File Manager
 
-So far, Styfer can:
-
-* List folders
-* List files
+* List all folders in the current directory
+* List all files in the current directory
 * Create folders
 * Delete files
 * Change directories
 * Rename files and folders
-* Run through an interactive terminal menu
+* Search for files and directories using `os.walk()`
 
-It may seem simple, but every feature has been written after understanding the concepts behind it.
+### 🧠 Memory Manager
 
----
+* Create a persistent memory file using JSON
+* Load memory on startup
+* View stored memory
+* Add new memory entries
+* Edit existing memory entries
+* Delete memory entries
+* Protected core fields (such as username and age)
 
-## Why I'm building this
+### 🛠 Technical Concepts Used
 
-I've wanted my own AI assistant for a long time.
-
-Not Jarvis.
-
-Not ChatGPT.
-
-Something that's actually **mine**.
-
-I want to understand every part of it, from the filesystem to memory, voice recognition, automation, and AI reasoning.
-
-This project will probably take years, and that's completely fine.
-
----
-
-## The goal
-
-One day I'd like to be able to say things like:
-
-> "Styfer, open my poker project."
-
-> "Styfer, rename this file."
-
-> "Styfer, summarize what I worked on yesterday."
-
-> "Styfer, help me debug this code."
-
-And have it actually understand and do those things.
+* Functions
+* Modules and imports
+* JSON storage
+* File handling
+* Error handling (`try` / `except`)
+* Dictionaries
+* Loops
+* `os` module
+* `os.walk()`
 
 ---
 
-## Planned Features
+## Project Structure
 
-* AI conversations
-* Voice input/output
-* Long-term memory
-* Desktop automation
-* Browser automation
-* Coding assistant
-* Project tracking
-* Plugin system
-* Computer vision
-* Local AI model support
-
-Probably many more ideas that I'll add along the way.
-
----
-
-## Development philosophy
-
-I don't blindly copy code.
-
-If I use code from somewhere else (including AI), I first understand how it works and why it's written that way before adding it to the project.
-
-The goal isn't just to finish Styfer.
-
-The goal is to become a better engineer while building it.
+```text
+Styfer AI/
+│
+├── main.py
+├── main_menu.py
+│
+├── file_main.py
+├── file_menu.py
+├── file_manager.py
+│
+├── memory_main.py
+├── memory_menu.py
+├── memory_manager.py
+│
+├── memory.json
+└── README.md
+```
 
 ---
 
-## Tech stack (currently)
+## Future Plans
 
-* Python
-* Git & GitHub
-* Python `os` module
-
-More technologies will be added as the project grows.
-
----
-
-## Project status
-
-🚧 **Very early development**
-
-Right now Styfer is just taking its first steps.
-
-Hopefully, one day I'll look back at this README and laugh at how small the project once was.
+* Text file reader
+* Login system
+* Voice commands
+* AI integration
+* Task automation
+* System monitoring
+* Natural language command processing
+* GUI interface
 
 ---
 
-## Author
+## Why I Built This
 
-**Medhansh Singh**
+I wanted a project that would force me to learn real programming concepts instead of only solving coding problems.
 
-*"Every big project starts with a single commit."*
+Styfer is my long-term project where I practice software design, project structure, Git, file handling, JSON, and eventually AI development.
+
+Every feature is written and expanded manually as I learn new concepts.
+
+---
+
+## Status
+
+🚧 Work in Progress
+
+Current Version: v0.6
