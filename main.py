@@ -1,33 +1,23 @@
-from menu import show_menu
-import os
-from file_manager import list_folders, list_files, create_folder, delete_file, change_directory, rename_file_or_directory, search_file
-os.chdir(r"C:\Users\Medhansh\Desktop")
-show_menu()
+
+from main_menu import main_menu
+from file_main import run_file_manager
+from memory_main import run_memory_manager
+
 while True:
+    main_menu()
     try:
-        print()
-        answer = int(input("Please enter a number: "))
+        answer = int(input("Please enter a number from 1 to 3 (inclusive): "))
     except ValueError:
-        print("Please enter a valid number between 1 and 7 (inclusive) ")
+        print("Please enter a number from 1 to 3 (inclusive) ")
         continue
+    
     if answer == 1:
-        list_folders()
+        run_file_manager()
     elif answer == 2:
-        list_files()
+        run_memory_manager()
     elif answer == 3:
-        create_folder()
-    elif answer == 4:
-        delete_file()
-    elif answer == 5:
-        change_directory()
-    elif answer == 6:
-        rename_file_or_directory()
-    elif answer == 7:
-        search_file()
-    elif answer == 8:
-        print("Thank you for using the Styfer File Manager!")
+        print("Thank you for using Styfer AI")
         break
     else:
-        print("Please enter a number between 1 and 7 (inclusive) ")
-
-#MAIN LOOP
+        print("Please enter a valid number")
+        continue
