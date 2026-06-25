@@ -22,7 +22,7 @@ def create_memory_file():
             print("Please enter a valid age")
             continue
        
-    current_project = input()                                    #CURRENT PROJECT
+    current_project = input("Please enter the current project you are working on: ")                                    #CURRENT PROJECT
     current_project = current_project.lower()
     current_project = current_project.replace(" ", "_")
     user_details["current_project"] = current_project
@@ -35,6 +35,9 @@ def create_memory_file():
 def load_memory():                                                  #LOADS LAST SAVED MEMORY
     with open("memory.json", "r") as starter_data:
         memory = json.load(starter_data)
+    for key,value in memory.items():
+        print(f"{key.replace('_', ' ').capitalize()}: {value}")
+        
     return memory
         
 def delete_memory():                                                   #DELETES SOME ENTRY
@@ -71,5 +74,18 @@ def change_user_details():                                                      
     else:
         print("That entry does not exist, please create one")       
      
-    
+def add_memory_entry():
+    key = input("What is the name of the field: ")
+    key = key.lower()
+    key = key.replace(" ", "_")
+    value = input("What is the value of this field: ")
+    with open("memory.json", "r") as new_data:
+        memory = json.load(new_data)
+    if key in memory.keys():
+        print("This key already exists, please pick option 4 to change the value")
+    else:
+        memory[key] = value
+        with open("memory.json", "w") as new_data:
+            json.dump(memory,new_data)
+        print("Memory entry added successfully")
 
