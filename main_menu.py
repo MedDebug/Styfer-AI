@@ -4,5 +4,6 @@ def main_menu():
     print("-------------------------------------------")
     print("1 - File Manager")
     print("2 - Memory Manager")
-    print("3 - Exit")
+    print("3 - Utilities")
+    print("4 - Exit")
     

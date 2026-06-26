@@ -1,9 +1,9 @@
-from menu import show_menu
+from file_menu import file_menu
 import os
 from file_manager import list_folders, list_files, create_folder, delete_file, change_directory, rename_file_or_directory, search_file
 def run_file_manager():
     os.chdir(r"C:\Users\Medhansh\Desktop")
-    show_menu()
+    file_menu()
     while True:
         try:
             print()

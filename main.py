@@ -2,6 +2,7 @@
 from main_menu import main_menu
 from file_main import run_file_manager
 from memory_main import run_memory_manager
+from utilities_main import run_utilities
 
 while True:
     main_menu()
@@ -16,6 +17,8 @@ while True:
     elif answer == 2:
         run_memory_manager()
     elif answer == 3:
+        run_utilities()
+    elif answer == 4:
         print("Thank you for using Styfer AI")
         break
     else:
