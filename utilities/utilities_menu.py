@@ -5,4 +5,5 @@ def utilities_menu():
     print("1 - Calculator")
     print("2 - Physics Toolkit")
     print("3 - Unit Conversion")
-    print("4 - Other Tools")
+    print("4 - Currency Converter")
+    print("5 - Other Tools")

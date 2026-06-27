@@ -1,5 +1,5 @@
-from physics_manager import speed_distance_time, velocity_displacement_time, acceleration_velocity_time, force_mass_acceleration, momentum_mass_velocity, impulse_force_time, torque_force_radius, work_force_displacement, potential_mass_height, kinetic_mass_velocity 
-from physics_menu import physics_menu
+from utilities.physics.physics_menu import physics_menu
+from utilities.physics.physics_manager import speed_distance_time, velocity_displacement_time, acceleration_velocity_time, force_mass_acceleration, momentum_mass_velocity, impulse_force_time, torque_force_radius, work_force_displacement, potential_mass_height, kinetic_mass_velocity
 
 def run_physics_manager():
     while True:

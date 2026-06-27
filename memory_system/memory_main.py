@@ -1,5 +1,5 @@
-from memory_menu import show_memory_menu
-from memory_manager import create_memory_file, delete_memory, change_user_details, load_memory, add_memory_entry
+from memory_system.memory_menu import show_memory_menu
+from memory_system.memory_manager import create_memory_file, delete_memory, change_user_details, load_memory, add_memory_entry
 import os
 def run_memory_manager():
     while True:

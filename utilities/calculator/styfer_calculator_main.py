@@ -1,5 +1,5 @@
-from styfer_calculator_manager import basic_calculation, square_root, squaring, cube_root, cubing, quadratic_equations, power, distance_formula
-from styfer_calculator_menu import show_styfer_calculator_menu
+from utilities.calculator.styfer_calculator_menu import show_styfer_calculator_menu
+from utilities.calculator.styfer_calculator_manager import basic_calculation, square_root, squaring, cube_root, cubing, quadratic_equations, power, distance_formula
 
 def run_styfer_calculator():
     while True:
