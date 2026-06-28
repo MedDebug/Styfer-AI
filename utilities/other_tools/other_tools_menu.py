@@ -1,0 +1,11 @@
+def other_tools_menu():
+    print("-------------------------------------------------------------")
+    print("----------Welcome to the Styfer AI Basic Tookit---------")
+    print("-------------------------------------------------------------")
+    print("1 - Random Number Generator")
+    print("2 - Dice Roller")
+    print("3 - Coin Flip")
+    print("4 - Password Generator")
+    print("5 - BMI Calculator")
+    print("6 - Percentage Calculator")
+    print("7 - Back")

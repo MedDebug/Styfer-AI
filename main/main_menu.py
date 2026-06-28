@@ -1,3 +1,4 @@
+
 def main_menu():
     print("-------------------------------------------")
     print("------------Styfer AI------------")
@@ -7,4 +8,8 @@ def main_menu():
     print("3 - Utilities")
     print("4 - Notes Manager")
     print("5 - Exit")
+
+    
+    
+    
     

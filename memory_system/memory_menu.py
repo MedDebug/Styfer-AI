@@ -1,6 +1,6 @@
 def show_memory_menu():
     print("-------------------------------------------")
-    print("------------Styfer Memory Manager------------")
+    print("------------Styfer Memory Manager----------")
     print("-------------------------------------------")
     print()
     print("1 - View Memory")

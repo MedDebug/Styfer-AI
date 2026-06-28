@@ -9,7 +9,7 @@ def run_memory_manager():
             create_memory_file()
             show_memory_menu()
         try:
-            answer = int(input("Please enter a number from 1 to 5 (inclusive)"))
+            answer = int(input("Please enter a number from 1 to 5 (inclusive): "))
         except ValueError:
             print("Please enter a number from 1 to 5 (inclusive)")
             continue
@@ -22,7 +22,7 @@ def run_memory_manager():
         elif answer == 4:
             change_user_details()
         elif answer == 5:
-            print("Thank you for using Styfer AI")
+            print("Thank you for using Styfer AI Memory Manager")
             break
         else:
             print("Please enter a number from 1 to 5 (inclusive)")

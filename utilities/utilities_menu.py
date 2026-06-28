@@ -7,3 +7,4 @@ def utilities_menu():
     print("3 - Unit Conversion")
     print("4 - Currency Converter")
     print("5 - Other Tools")
+    print("6 - Exit")
