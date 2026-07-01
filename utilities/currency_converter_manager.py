@@ -26,12 +26,8 @@ currency = {
     "idr": 16300.0     # Indonesian Rupiah
 }
 
-def get_float(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Please enter a valid number")
+
+from voice_hub import ask,say,speak,get_float
 
 def currency_conversions():
     while True:
@@ -39,6 +35,7 @@ def currency_conversions():
         print("--------Welcome to the Styfer AI Currency Converter----------")
         print("-------------------------------------------------------------")
         print("Supported Currencies:")
+        print()
         print("USD - US Dollar")
         print("EUR - Euro")
         print("GBP - British Pound")
@@ -65,21 +62,22 @@ def currency_conversions():
         print("THB - Thai Baht")
         print("IDR - Indonesian Rupiah")
 
-        unknown_field = input("Please enter currency to convert into: ").lower()
-        known_field = input("Please enter currency you currently have: ").lower()
+        unknown_field = ask("Please enter currency to convert into: ").lower()
+        known_field = ask("Please enter currency you currently have: ").lower()
 
         if known_field not in currency or unknown_field not in currency:
-            print("Please enter a valid currency.")
+            say("Please enter a valid currency.")
             continue
 
-        known_value = get_float("Please enter the amount: ")
+        speak("Please enter the amount")
+        known_value = get_float(("Please enter the amount: "))
         
         if known_field == unknown_field:
-            print("Resultant:", known_value)
+            say(f"Resultant: {known_value}")
             break
         value_in_usd = known_value / currency[known_field]
         answer = value_in_usd * currency[unknown_field]
 
-        print(f"{known_value} {known_field.upper()} = {answer:.2f} {unknown_field.upper()}")
-        print("\nNote: Exchange rates are fixed and may not reflect current market values.")
+        say(f"{known_value} {known_field.upper()} = {answer:.2f} {unknown_field.upper()}")
+        say("\nNote: Exchange rates are fixed and may not reflect current market values.")
         break

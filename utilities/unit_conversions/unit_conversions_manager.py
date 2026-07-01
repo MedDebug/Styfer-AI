@@ -1,12 +1,4 @@
-#-----------------HELPER FUNCTIONS---------------------
-def get_float(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Please enter a valid number")
-            
-#--------------------------------------------------------
+from voice_hub import ask,say,speak,get_float,get_int,get_non_zero_float
 
 volume = {"m3": 1,
           "dm3": 0.001,
@@ -17,18 +9,19 @@ def volume_conversions():
     while True:
         print("------- dm3 / cm3 / m3 / Litres / Millilitres--------")
         
-        unknown_field = input("Please enter one field from the above: ").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above: ").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         
         if known_field not in volume or unknown_field not in volume:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value*volume[known_field]
         answer = base_value / volume[unknown_field]
-        print("Resultant: ", answer)
+        say(f"Resultant: {answer}")
         break
+
 area = {
     "mm2": 0.000001,
     "cm2": 0.0001,
@@ -41,17 +34,17 @@ area = {
 def area_conversions():
     while True:
         print("------- mm2 / cm2 / m2 / dm2 / km2 / Hectares / Acres--------")
-        unknown_field = input("Please enter one field from the above").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         
         if known_field not in area or unknown_field not in area:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value*area[known_field]
         answer = base_value / area[unknown_field]
-        print("Resultant: ", answer)
+        say(f"Resultant: {answer}")
         break
 
 length = {
@@ -68,17 +61,17 @@ length = {
 def length_distance_conversions():
     while True:
         print("------- mm / cm / m / dm / km / Inches / Feet / Yards / Miles--------")
-        unknown_field = input("Please enter one field from the above").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         
         if known_field not in length or unknown_field not in length:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value*length[known_field]
         answer = base_value / length[unknown_field]
-        print("Resultant: ", answer)
+        say(f"Resultant: {answer}")
         break
     
 mass = {
@@ -92,17 +85,17 @@ mass = {
 def mass_conversions():
     while True:
         print("----------mg / g / kg / Tonnes / Ounces / Pounds----------")
-        unknown_field = input("Please enter one field from the above").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         
         if known_field not in mass or unknown_field not in mass:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value*mass[known_field]
         answer = base_value / mass[unknown_field]
-        print("Resultant: ", answer)
+        say(f"Resultant: {answer}")
         break
         
 time = {
@@ -116,55 +109,58 @@ time = {
 def time_conversions():
     while True:
         print("----------Milliseconds / Seconds / Minutes / Hours / Days / Weeks----------")
-        unknown_field = input("Please enter one field from the above").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         
         if known_field not in time or unknown_field not in time:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value*time[known_field]
         answer = base_value / time[unknown_field]
-        print("Resultant: ", answer)
+        say(f"Resultant: {answer}")
         break
     
 def temperature_conversions():
     while True:
         print("----------Kelvin / Celsius / Fahrenheit----------")
-        unknown_field = input("Please enter one field from the above").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
         valid = ["celsius", "fahrenheit", "kelvin"]
         if known_field not in valid or unknown_field not in valid:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
         known_value = get_float("Please enter the value of that field: ")
         if unknown_field == known_field:
-            print("Resultant: ", known_value)
+            say(f"Resultant:  {known_value}")
             break
+        
         elif unknown_field == "celsius":
             if known_field == "fahrenheit":
-                print("Resultant: ",(known_value-32)*(5/9))
+                say(f"Resultant: {(known_value-32)*(5/9)}")
                 break
             elif known_field == "kelvin":
-                print("Resultant: ", known_value - 273.15)
+                say(f"Resultant: {known_value - 273.15}")
                 break
+        
         elif unknown_field == "fahrenheit":
             if known_field == "celsius":
-                print("Resultant: ", (known_value*(9/5)) + 32)
+                say(f"Resultant: {(known_value*(9/5)) + 32}")
                 break
             elif known_field == "kelvin":
-                print("Resultant: ", (known_value - 273.15)*(9/5) + 32)
+                say(f"Resultant: {(known_value - 273.15)*(9/5) + 32}")
                 break
+        
         elif unknown_field == "kelvin":
             if known_field == "celsius":
-                print("Resultant: ", known_value + 273.15)
+                say(f"Resultant: {known_value + 273.15}")
                 break
             elif known_field == "fahrenheit":
-                print("Resultant: ", (known_value - 32)*(5/9) + 273.15)
+                say(f"Resultant: {(known_value - 32)*(5/9) + 273.15}")
                 break
         else:
-            print("Please enter a valid field from the above")
+            say("Please enter a valid field from the above")
             continue
         
 speed = {
@@ -178,18 +174,18 @@ def speed_conversions():
     while True:
         print("----------m/s / km/h / mph / ft/s / knots----------")
 
-        unknown_field = input("Please enter one field from the above: ").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above: ").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
 
         if known_field not in speed or unknown_field not in speed:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
 
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value * speed[known_field]
         answer = base_value / speed[unknown_field]
 
-        print("Resultant:", answer)
+        say(f"Resultant: {answer}")
         break
     
 pressure = {
@@ -205,18 +201,18 @@ def pressure_conversions():
     while True:
         print("----------Pascal / kpa / mpa / Bar / atm / psi / Torr----------")
 
-        unknown_field = input("Please enter one field from the above: ").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above: ").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
 
         if known_field not in pressure or unknown_field not in pressure:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
 
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value * pressure[known_field]
         answer = base_value / pressure[unknown_field]
 
-        print("Resultant:", answer)
+        say(f"Resultant: {answer}")
         break
     
 energy = {
@@ -233,17 +229,17 @@ def energy_conversions():
     while True:
         print("----------Joule / kj / mj / cal / kcal / wh / kwh / ev----------")
 
-        unknown_field = input("Please enter one field from the above: ").lower()
-        known_field = input("Please enter the field of the value which you currently have: ").lower()
+        unknown_field = ask("Please enter one field from the above: ").lower()
+        known_field = ask("Please enter the field of the value which you currently have: ").lower()
 
         if known_field not in energy or unknown_field not in energy:
-            print("Please enter a valid unit.")
+            say("Please enter a valid unit.")
             continue
 
         known_value = get_float("Please enter the value of that field: ")
         base_value = known_value * energy[known_field]
         answer = base_value / energy[unknown_field]
 
-        print("Resultant:", answer)
+        say(f"Resultant: {answer}")
         break
     

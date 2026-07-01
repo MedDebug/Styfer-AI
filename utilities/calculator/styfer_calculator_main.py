@@ -1,13 +1,16 @@
 from utilities.calculator.styfer_calculator_menu import show_styfer_calculator_menu
+from voice_hub import ask,say,speak
 from utilities.calculator.styfer_calculator_manager import basic_calculation, square_root, squaring, cube_root, cubing, quadratic_equations, power, distance_formula
 
 def run_styfer_calculator():
     while True:
         show_styfer_calculator_menu()
+        print()
         try:
-            answer = int(input("Please enter a number from 1 to 9 (inclusive): "))
+            answer = int(ask("Please enter a number from 1 to 9 (inclusive): "))
         except ValueError:
-            print("Please enter a valid integer from 1 to 9 (inclusive)")
+            print()
+            say("Invalid, please try again")
             continue
         
         if answer == 1:
@@ -27,9 +30,9 @@ def run_styfer_calculator():
         elif answer == 8:
             distance_formula()
         elif answer == 9:
-            print("Thank you for using Styfer AI Utilities")
+            say("Thank you for using Styfer AI Utilities")
             break
         else:
-            print("Please enter a valid integer from 1 to 9 (inclusive)")
+            say("Please enter a valid integer")
             continue
 

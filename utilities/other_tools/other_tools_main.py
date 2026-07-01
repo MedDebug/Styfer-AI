@@ -7,14 +7,17 @@ from utilities.other_tools.other_tools_manager import (
     percentage_calculator,
     bmi_calculator
 )
+from voice_hub import say,ask,speak
 
 def run_other_tools():
     while True:
         other_tools_menu()
+        print()
         try:
-            answer = int(input("Please enter a number from 1 to 7 (inclusive): "))
+            answer = int(ask("Please enter a number from 1 to 7 (inclusive): "))
         except ValueError:
-            print("Please enter a valid integer from 1 to 7 (inclusive)")
+            print()
+            say("Invalid, please try again ")
             continue
         
         if answer == 1:
@@ -30,8 +33,9 @@ def run_other_tools():
         elif answer == 6:
             percentage_calculator()
         elif answer == 7:
-            print("Thank you for using Styfer AI Basic Toolkit")
+            print()
+            say("Thank you for using Styfer AI Basic Toolkit")
             break
         else:
-            print("Please enter a valid number from 1 to 7 (inclusive) ")
+            say("Please enter a valid number")
             continue

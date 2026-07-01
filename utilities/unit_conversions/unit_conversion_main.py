@@ -10,14 +10,17 @@ from utilities.unit_conversions.unit_conversions_manager import (
     pressure_conversions,
     energy_conversions
 )
+from voice_hub import ask,say,speak
 
 def run_unit_converter():
     while True:
         unit_conversion_menu()
+        print()
         try:
-            answer = int(input("Please enter an integer from 1 to 10 (inclusive): "))
+            answer = int(ask("Please enter an integer from 1 to 10 (inclusive): "))
         except ValueError:
-            print("Please enter a valid integer from 1 to 10 (inclusive) ")
+            print()
+            print("Invalid, please try again")
             continue
         
         if answer == 1:
@@ -39,7 +42,9 @@ def run_unit_converter():
         elif answer == 9:
             energy_conversions()
         elif answer == 10:
-            print("Thank you for using Styfer AI Unit Converter")
+            print()
+            say("Thank you for using Styfer AI Unit Converter")
             break
         else:
-            print("Please enter a valid integer from 1 to 10 (inclusive) ")
+            say("Please enter a valid integer")
+            continue

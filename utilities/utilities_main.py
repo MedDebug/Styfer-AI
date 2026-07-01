@@ -4,15 +4,18 @@ from utilities.utilities_menu import utilities_menu
 from utilities.unit_conversions.unit_conversion_main import run_unit_converter
 from utilities.currency_converter_manager import currency_conversions
 from utilities.other_tools.other_tools_main import run_other_tools
+from voice_hub import ask,say,speak
 
 
 def run_utilities():
     while True:
         utilities_menu()
+        print()
         try:
-            answer = int(input("Please enter a number from 1 to 4 (inclusive): "))
+            answer = int(ask("Please enter a number from 1 to 6 (inclusive): "))
         except ValueError:
-            print("Please enter a valid integer from 1 to 4 (inclusive)")
+            print()
+            print("Invalid, please try again")
             continue
         
         if answer == 1:
@@ -25,11 +28,12 @@ def run_utilities():
             currency_conversions()
         elif answer == 5:
             run_other_tools()
-        elif answer == 5:
-            print("Thank you for using Styfer AI Utilities")
+        elif answer == 6:
+            print()
+            say("Thank you for using Styfer AI Utilities")
             break
         else:
-            print("Please enter a valid integer from 1 to 4 (inclusive)")
+            say("Please enter a valid integer")
             continue
         
         
